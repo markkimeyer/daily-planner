@@ -5,36 +5,44 @@ var currentDate = moment().format("MM/DD/YYYY");
 $("#currentDay").append(currentDate);
 
 //save input to local storage
-$(".saveBtn").on("click", function () {
-    var toDO = $(this).val();
-    console.log(toDo);
+// $(".saveBtn").on("click", function () {
+//     var toDO = $(this).val();
+//     console.log(toDo);
 
-    localStorage.setItem()
-})
+//     localStorage.setItem()
+// })
 
 //current hour for color changes
 var currentHour = moment().hour();
 
-var textBody = $(".textBody");
+// var plannerHour = $(".row").attr("value");
+// console.log(plannerHour);
 
-function changeColor() {
-    for (var i = 0; i < textBody.length; i++) {
-        var now = parseInt(textBody[i].dataset.time);
-        console.log(now);
+var textBody = $(".text-body");
 
-        if (now > currentHour) {
-            textBody[i].attr("id", "future");
+;
+            
+    function changeColor() {
+        console.log(currentHour);
+        for (var i = 0; i < textBody.length; i++){
+            var currentHourInputBox = textBody[i];
+            // var plannerHour = $(".row").attr("value");
+            // console.log($(currentHourInputBox).attr("data-value"));
+            var plannerHour = $(currentHourInputBox).attr("data-value");
+
+        if (plannerHour > currentHour) {
+            $(textBody[i]).addClass("future");
         }
 
-        if (now < currentHour) {
-            textBody[i].attr("id", "past");
+        if (plannerHour < currentHour) {
+            $(textBody[i]).addClass("past");
         }
 
-        if (now == currentHour) {
-            textBody[i].attr("id", "present");
+        if (plannerHour === currentHour) {
+            $(textBody[i]).addClass("present");
         }
-
+    
     }
+}
 
 changeColor();
-}
