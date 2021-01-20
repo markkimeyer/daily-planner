@@ -4,14 +4,6 @@ var currentDate = moment().format("MM/DD/YYYY");
 
 $("#currentDay").append(currentDate);
 
-//save input to local storage
-// $(".saveBtn").on("click", function () {
-//     var toDO = $(this).val();
-//     console.log(toDo);
-
-//     localStorage.setItem()
-// })
-
 //current hour for color changes
 var currentHour = moment().hour();
 
@@ -20,7 +12,7 @@ var currentHour = moment().hour();
 
 var textBody = $(".text-body");
 
-;
+
             
     function changeColor() {
         console.log(currentHour);
@@ -46,3 +38,12 @@ var textBody = $(".text-body");
 }
 
 changeColor();
+
+//save input to local storage
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    var saveInput = $(textBody).val();
+     console.log(saveInput);
+ 
+ //     localStorage.setItem()
+ })
