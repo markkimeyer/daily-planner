@@ -39,11 +39,24 @@ var textBody = $(".text-body");
 
 changeColor();
 
+// for (i = 0; i < 12; i++) {
+//     console.log( localStorage.getItem(8+i+"input"));
+    $(textBody).each(function() {
+    
+    var saveInput = localStorage.getItem($(this).attr("data-value") + "input");
+    $(this).val(saveInput);    
+        })
+
+
+
 //save input to local storage
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    var saveInput = $(textBody).val();
-     console.log(saveInput);
+    $(textBody).each(function() {
+    
+    localStorage.setItem($(this).attr("data-value") + "input",($(this).val()));
+    
+    })
  
- //     localStorage.setItem()
+ //     localStorage.getItem()
  })
