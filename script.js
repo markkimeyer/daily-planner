@@ -39,10 +39,12 @@ var textBody = $(".text-body");
 
 changeColor();
 
-// for (i = 0; i < 12; i++) {
+// for (i = 0; i < 10; i++) {
 //     console.log( localStorage.getItem(8+i+"input"));
+
     $(textBody).each(function() {
-    
+
+        //get input from local storage
     var saveInput = localStorage.getItem($(this).attr("data-value") + "input");
     $(this).val(saveInput);    
         })
@@ -58,5 +60,4 @@ $(".saveBtn").on("click", function (event) {
     
     })
  
- //     localStorage.getItem()
  })
